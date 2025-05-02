@@ -13,3 +13,15 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Substance {
+  id           String   @id @default(uuid())
+  name         String
+  formula      String?
+  casNumber    String?  @unique
+  meltingPoint Float?
+  boilingPoint Float?
+  density      Float?
+  category     String?
+  createdAt    DateTime @default(now())
+}
